@@ -8,3 +8,6 @@ Chaque point énuméré représentera un sprint:
 4. Coder les fonctionalités prévues 3 jh
 5. Tester ces Fonctionalités et l'outils en entier 0.5 jh
 6. Déployer la solution sur un hébergeur gratuit. 0.5 jh
+
+## Diagrame de classe
+![alt text](https://github.com/WilChrist/scrumware/blob/master/ScrumWare_ClassDiagram.jpg)
