@@ -1,4 +1,4 @@
-# Dépot du mini-projet de Génie Logiciel pour l'outils ScrumWare
+﻿# Dépot du mini-projet de Génie Logiciel pour l'outils ScrumWare.
 
 Notre Backlog:
 Chaque point énuméré représentera un sprint:
