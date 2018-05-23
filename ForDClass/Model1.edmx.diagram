@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="229be8a4ca1541bb9bbe173e243263c9" Name="Diagram1" ZoomLevel="87" >
+        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="Model1.Role" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="Model1.Projet" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="Model1.Backlog" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="Model1.UserStory" Width="1.5" PointX="10.5" PointY="3.875" />
+        <EntityTypeShape EntityType="Model1.Sprint" Width="1.5" PointX="8.25" PointY="6" />
+        <EntityTypeShape EntityType="Model1.Tache" Width="1.5" PointX="5.25" PointY="5.75" />
+        <AssociationConnector Association="Model1.joue" />
+        <AssociationConnector Association="Model1.cree" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="Model1.correspond" />
+        <AssociationConnector Association="Model1.comporte" />
+        <AssociationConnector Association="Model1.S_execute_en" />
+        <AssociationConnector Association="Model1.BacklogTache" />
+        <AssociationConnector Association="Model1.consiste_en" />
+        <AssociationConnector Association="Model1.prend_en_charge" />
+        <AssociationConnector Association="Model1.ajoute" />
+        <AssociationConnector Association="Model1.Configure" />
+        <AssociationConnector Association="Model1.Propose" />
+        <AssociationConnector Association="Model1.UserBacklog" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
