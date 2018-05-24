@@ -9,7 +9,7 @@ namespace ScrumWare
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-2.2.4.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -20,17 +20,18 @@ namespace ScrumWare
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      /*"~/Content/bootstrap.css",*/
                       "~/Content/responsive.css",
                       "~/Content/style.css"));
             bundles.Add(new ScriptBundle("~/bundles/others").Include(
-                        "~/Scripts/active.js",
+                        "~/Scripts/slick.min.js",
+                        "~/Scripts/plugins.js",
                         "~/Scripts/footer-reveal.min.js",
-                        "~/Scripts/plugin.js",
-                        "~/Scripts/slick.min.js"));
+                        "~/Scripts/popper.min.js",
+                        "~/Scripts/active.js"));
         }
     }
 }
