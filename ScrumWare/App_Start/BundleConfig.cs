@@ -24,7 +24,13 @@ namespace ScrumWare
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/responsive.css",
+                      "~/Content/style.css"));
+            bundles.Add(new ScriptBundle("~/bundles/others").Include(
+                        "~/Scripts/active.js",
+                        "~/Scripts/footer-reveal.min.js",
+                        "~/Scripts/plugin.js",
+                        "~/Scripts/slick.min.js"));
         }
     }
 }
