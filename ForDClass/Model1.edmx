@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
-  <!-- EF Runtime content -->
+  <!-- EF Runtime content  -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>

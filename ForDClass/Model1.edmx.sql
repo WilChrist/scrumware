@@ -2,9 +2,9 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/25/2018 00:32:17
--- Generated from EDMX file: C:\Users\lenovo\Desktop\TPS ASP MVC\scrumware\ForDClass\Model1.edmx
--- --------------------------------------------------
+-- Date Created: 05/23/2018 23:35:59
+-- Generated from EDMX file: C:\Projets\scrumware\ForDClass\Model1.edmx
+-- -------------------------------------------------- 
 
 SET QUOTED_IDENTIFIER OFF;
 GO

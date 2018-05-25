@@ -7,4 +7,4 @@
 // que vous n'avez pas encore choisi la version d'Entity Framework à utiliser. Pour générer une classe de contexte et des classes
 // d'entité pour le modèle, ouvrez le modèle dans le concepteur, cliquez avec le bouton droit sur l'aire de conception, puis
 // sélectionnez 'Mettre à jour le modèle à partir de la base de données...', 'Générer une base de données à partir du modèle...' ou 'Ajouter un élément de génération
-// de code...'.
+// de code...' .
