@@ -17,7 +17,7 @@ namespace ScrumWare.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            //ok
             return View();
         }
 
