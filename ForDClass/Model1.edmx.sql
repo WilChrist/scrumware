@@ -4,7 +4,7 @@
 -- --------------------------------------------------
 -- Date Created: 05/23/2018 23:35:59
 -- Generated from EDMX file: C:\Projets\scrumware\ForDClass\Model1.edmx
--- --------------------------------------------------
+-- -------------------------------------------------- 
 
 SET QUOTED_IDENTIFIER OFF;
 GO
