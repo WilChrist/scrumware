@@ -46,7 +46,7 @@
                 <!-- Signup btn -->
                 <div class="col-12 col-lg-2">
                     <div class="sing-up-button d-none d-lg-block">
-                        <a href="#">Sign Up Free</a>
+                        @Html.ActionLink("Sign Up Free", "User","Inscription")
                     </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
+    <div>  @RenderBody()</div>
 
-
-    @RenderBody()
+  
     <hr />
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-social-icon text-center section_padding_70 clearfix">
