@@ -12,6 +12,12 @@ namespace ScrumWare.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["user"]==null)
+            {
+                ViewBag.message = "Please login First";
+                
+                return RedirectToAction("Login");
+            }
             return View();
         }
         public ActionResult Login()
@@ -19,7 +25,7 @@ namespace ScrumWare.Controllers
             ViewBag.message = "";
             return View();
         }
-        public ActionResult Session()
+        public ActionResult Sessions()
         {
             return View();
         }
@@ -28,17 +34,34 @@ namespace ScrumWare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(UserLogin user)
         {
-            ViewBag.message = "";
-           
+            if (ViewBag.message == null)
+            {
+                ViewBag.message = "";
+            }
+            else
+            {
+
+            }
+                       
             ProjetScrumEntities db = new ProjetScrumEntities();
             var c = db.Users.Where(a => a.Email == user.Email).FirstOrDefault();
             if (c != null)
             {
-                return RedirectToAction("Session");
+                if (c.MotPasse == user.MotPasse)
+                {
+                    Session["user"] = c;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.message = "Invalid PassWord";
+                    return View();
+                }
+                
             }
             else
             {
-                ViewBag.message = "Invalid Login and mot de pass";
+                ViewBag.message = "Invalid Login";
            
             return View();
             }
@@ -63,7 +86,7 @@ namespace ScrumWare.Controllers
                 user.SignUpDate = DateTime.Now.ToLongDateString();
                 user.LastSignIn = DateTime.Now;
                 user.DateOfBirth= DateTime.Now;
-                user.Role_Id = 1;
+                user.Role_Id = 3;
                 db.Users.Add(user);
                 db.SaveChanges();
 

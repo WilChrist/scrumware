@@ -1,8 +1,119 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Welcome to your Profile";
+    ScrumWare.Models.User user = (ScrumWare.Models.User) Session["user"];
 }
 
+<!-- ***** Wellcome Area Start ***** -->
+<section class="wellcome_area clearfix p-lg-5" id="home"  >
+    <div class="container" style="margin-top:100px; background-color:white;">
+        <h2> Your Profile</h2>
+        <div class="media border p-4">
+            @if (user.Role.Name == "Developer")
+            {
+                <img src="~/img/core-img/developer.png" alt="developper" class="mr-3 mt-3 rounded-circle" style="width:160px;background-color:whitesmoke;">
+            }
+            else if (user.Role.Name == "ScrumMaster")
+            {
+                <img src="~/img/core-img/scrummaster.png" alt="Scrum Master" class="mr-3 mt-3 rounded-circle" style="width:160px;background-color:whitesmoke;">
+            }
+            else
+            {
+                <img src="~/img/core-img/po.png" alt="Product owner" class="mr-3 mt-3 rounded-circle" style="width:160px;background-color:whitesmoke;">
+            }
+                <div class="media-body" style="background-color:whitesmoke;">
+                    <h4> @user.LastName @user.FirstName, <small><span class="badge badge-primary">@user.Role.Name</span> <i>Signed Up since the @user.SignUpDate</i></small></h4>
+                    <p>@user.Description @if (user.Projets == null)
+                    {<p>null</p>}else{<p>@user.Projets.Count</p>}</p>
 
+                </div>
+        </div>
 
+    </div>
+    <!-- Welcome thumb -->
+    
+</section>
+<!-- ***** Wellcome Area End ***** -->
+<!-- ***** Special Area Start ***** -->
+<section class="special-area bg-white section_padding_100" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading Area -->
+                <div class="section-heading text-center">
+                    <h2>Your Projets</h2>
+                    <div class="line-shape"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="single-icon">
+                        <i class="ti-mobile" aria-hidden="true"></i>
+                    </div>
+                    <h4>Easy to use</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-icon">
+                        <i class="ti-ruler-pencil" aria-hidden="true"></i>
+                    </div>
+                    <h4>Powerful Design</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+            <!-- Single Special Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="single-icon">
+                        <i class="ti-settings" aria-hidden="true"></i>
+                    </div>
+                    <h4>Customizability</h4>
+                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Special Description Area -->
+    <div class="special_description_area mt-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="special_description_img">
+                        <img src="img/bg-img/special.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-5 ml-xl-auto">
+                    <div class="special_description_content">
+                        <h2>Our Best Propositions for You!</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                        <div class="app-download-area">
+                            <div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
+                                <!-- Google Store Btn -->
+                                <a href="#">
+                                    <i class="fa fa-android"></i>
+                                    <p class="mb-0"><span>available on</span> Google Store</p>
+                                </a>
+                            </div>
+                            <div class="app-download-btn wow fadeInDown" data-wow-delay="0.4s">
+                                <!-- Apple Store Btn -->
+                                <a href="#">
+                                    <i class="fa fa-apple"></i>
+                                    <p class="mb-0"><span>available on</span> Apple Store</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Special Area End ***** -->
