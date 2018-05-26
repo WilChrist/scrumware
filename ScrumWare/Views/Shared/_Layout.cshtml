@@ -36,21 +36,40 @@
                                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                                 </ul>
-                                <div class="sing-up-button d-lg-none d-lg-block"">
-                                    @Html.ActionLink("Sign In", "Login", "User")
-                                </div>
+
                             </div>
                         </nav>
                     </div>
                 </div>
                 <!-- Signup btn -->
-                <div class="col-12 col-lg-2">
-                    <div class="sing-up-button d-none d-lg-block">
-                        @Html.ActionLink("Sign Up Free", "Inscription","User")
+                @if (Session["user"] == null)
+                {
+                    <div class="col-12 col-lg-2">
+                        <div class="col-md-6 sing-up-button d-lg-inline-block">
+                            @Html.ActionLink("Sign Up Free", "Inscription", "User")
+                        </div>
+                        <div class="col-md-6 sing-up-button  d-lg-inline-block">
+                            @Html.ActionLink("Sign In", "Login", "User")
+                        </div>
                     </div>
-                </div>
+
+                }
+                else
+                {
+                    ScrumWare.Models.User user = (ScrumWare.Models.User) Session["user"];
+                    <div class="col-12 col-lg-2">
+                        <div class="col-md-6 sing-up-button d-none d-lg-block">
+                            <a href="user">
+                                <i class="fa fa-user" style="font-size:2vw">
+                                </i>
+                                <span>@user.LastName</span>
+                            </a>
+                        </div>
+                    </div>
+                }
+
             </div>
-        </div>
+                    </div>
     </header>
     <!-- ***** Header Area End ***** -->
 
