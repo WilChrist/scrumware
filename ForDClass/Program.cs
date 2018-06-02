@@ -10,8 +10,8 @@ namespace ForDClass
     {
         static void Main(string[] args)
         {
-           
-            Model1Container model1Container = new Model1Container();
+
+            /*Model1Container model1Container = new Model1Container();
             model1Container.Database.Log = Console.Write;
             Role role = new Role
             {
@@ -45,7 +45,7 @@ namespace ForDClass
             projet.User.Add(user);
             model1Container.SaveChanges();
 
-            Console.Read();
+            Console.Read();*/
         }
     }
 }

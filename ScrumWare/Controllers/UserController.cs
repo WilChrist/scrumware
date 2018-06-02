@@ -67,7 +67,8 @@ namespace ScrumWare.Controllers
             }
         }
         public ActionResult Inscription()
-        {
+        {   ProjetScrumEntities db = new ProjetScrumEntities();
+      ViewBag.Role_Id = new SelectList(db.Roles, "Id", "Name");
             return View();
         }
         [HttpPost]

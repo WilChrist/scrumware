@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="36fb67cc84d04cedae00c22188c42b89" Name="Diagram1">
+      <Diagram DiagramId="28128d9b862a4cd4836bedfcd14466e9" Name="Diagram1">
         <EntityTypeShape EntityType="ProjetScrumModel.Backlog" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetScrumModel.Projet" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetScrumModel.Role" Width="1.5" PointX="3.75" PointY="6.375" IsExpanded="true" />

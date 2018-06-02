@@ -1,0 +1,16 @@
+﻿@model ScrumWare.Models.Projet
+
+@{
+                /**/
+
+                Layout = null;
+                ViewBag.Title = "Index";
+}
+
+<h2>Ajouter Projet</h2>
+
+@Html.ActionLink("Ajouter nouveau Projet ", "Create", "Projets")
+@Html.ActionLink("Ajouter Backlog à un projet ", "Create", "Backlogs")
+<div>
+ @Html.ActionLink("Back to List", "Index")
+</div>
