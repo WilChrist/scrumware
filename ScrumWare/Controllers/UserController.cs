@@ -44,6 +44,7 @@ namespace ScrumWare.Controllers
             }
                        
             ProjetScrumEntities db = new ProjetScrumEntities();
+           // db.Database.SqlQuery("select * from ProjetUser ",);
             var c = db.Users.Where(a => a.Email == user.Email).FirstOrDefault();
             if (c != null)
             {

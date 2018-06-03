@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="ProjetScrumModel.Role" Width="1.5" PointX="3.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetScrumModel.Sprint" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetScrumModel.Tache" Width="1.5" PointX="10.5" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjetScrumModel.User" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetScrumModel.User" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetScrumModel.UserStory" Width="1.5" PointX="13.5" PointY="9.375" IsExpanded="true" />
         <AssociationConnector Association="ProjetScrumModel.FK_BacklogTache" ManuallyRouted="false" />
         <AssociationConnector Association="ProjetScrumModel.FK_comporte" ManuallyRouted="false" />
@@ -23,7 +23,8 @@
         <AssociationConnector Association="ProjetScrumModel.FK_prend_en_charge" ManuallyRouted="false" />
         <AssociationConnector Association="ProjetScrumModel.FK_ajoute" ManuallyRouted="false" />
         <AssociationConnector Association="ProjetScrumModel.FK_Propose" ManuallyRouted="false" />
-        <AssociationConnector Association="ProjetScrumModel.ProjetUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetScrumModel.ProjetUser" ManuallyRouted="false" >
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
