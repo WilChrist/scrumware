@@ -54,6 +54,11 @@ namespace ScrumWare.Controllers
             if (ModelState.IsValid)
             {
                 db.Projets.Add(projet);
+                
+                ScrumWare.Models.User user = (ScrumWare.Models.User)Session["user"];
+                user.Projets.Add(projet);
+                db.Users.Find(user.Id).Projets.Add(projet);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

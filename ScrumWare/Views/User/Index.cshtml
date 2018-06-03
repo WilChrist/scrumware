@@ -66,28 +66,32 @@
 
                         @foreach (var item in user.Projets)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreationDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LastUpdateDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.State)
-                                </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastUpdateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.State)
+                            </td>
+                            @if (user.Role.Name=="Product Owner")
+                            {
                                 <td>
                                     <a href="Projets/Edit/@item.Id">Edit</a> |
                                     <a href="Projets/Details/@item.Id">Details</a> |
                                     <a href="Projets/Delete/@item.Id">Delete</a>
                                 </td>
-                            </tr>
+                            }
+
+                        </tr>
                         }
 
 
@@ -99,15 +103,19 @@
 
         <div class="row">
             <!-- Single Special Area -->
-            <div class="col-12 col-md-4">
-                <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="single-icon">
-                        <i class="ti-plus" aria-hidden="true"></i>
-                    </div>
-                    <h4>Add a new Project</h4>
-                    <p>You can add projet Here</p>
+            
+                <div class="col-12 col-md-4">
+                    <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="Projets/Create">
+                            <div class="single-icon">
+                                <i class="ti-plus" aria-hidden="true"></i>
+                            </div>
+                            <h4>Add a new Project</h4>
+                            <p>You can add projet Here</p>
+                        </a>
+        </div>
                 </div>
-            </div>
+            
             <!-- Single Special Area -->
             <div class="col-12 col-md-4">
                 <div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
