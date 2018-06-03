@@ -49,6 +49,7 @@ namespace ScrumWare.Controllers
             {
                 if (c.MotPasse == user.MotPasse)
                 {
+                    c.Projets = db.Projets.ToList();
                     Session["user"] = c;
                     return RedirectToAction("Index");
                 }

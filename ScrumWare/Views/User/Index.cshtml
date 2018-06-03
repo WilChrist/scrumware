@@ -44,6 +44,55 @@
                 <div class="section-heading text-center">
                     <h2>Your Projets</h2>
                     <div class="line-shape"></div>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Creation Date
+                            </th>
+                            <th>
+                                Last Update Date
+                            </th>
+                            <th>
+                                State
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in user.Projets)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreationDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastUpdateDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.State)
+                                </td>
+                                <td>
+                                    <a href="Projets/Edit/@item.Id">Edit</a> |
+                                    <a href="Projets/Details/@item.Id">Details</a> |
+                                    <a href="Projets/Delete/@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+                    <div class="line-shape"></div>
                 </div>
             </div>
         </div>
@@ -53,20 +102,20 @@
             <div class="col-12 col-md-4">
                 <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
                     <div class="single-icon">
-                        <i class="ti-mobile" aria-hidden="true"></i>
+                        <i class="ti-plus" aria-hidden="true"></i>
                     </div>
-                    <h4>Easy to use</h4>
-                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                    <h4>Add a new Project</h4>
+                    <p>You can add projet Here</p>
                 </div>
             </div>
             <!-- Single Special Area -->
             <div class="col-12 col-md-4">
                 <div class="single-special text-center wow fadeInUp" data-wow-delay="0.4s">
                     <div class="single-icon">
-                        <i class="ti-ruler-pencil" aria-hidden="true"></i>
+                        <i class="ti-user" aria-hidden="true"></i>
                     </div>
-                    <h4>Powerful Design</h4>
-                    <p>We build pretty complex tools and this allows us to take designs and turn them into functional quickly and easily</p>
+                    <h4>add a Member to your team</h4>
+                    <p>You can add a member to your team.</p>
                 </div>
             </div>
             <!-- Single Special Area -->
