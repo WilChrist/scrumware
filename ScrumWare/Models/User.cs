@@ -20,19 +20,19 @@ namespace ScrumWare.Models
             this.Backlogs = new HashSet<Backlog>();
             this.Sprints = new HashSet<Sprint>();
             this.Taches = new HashSet<Tache>();
-            this.UserStories = new HashSet<UserStory>();
+            this.UserStorys = new HashSet<UserStory>();
             this.Projets = new HashSet<Projet>();
         }
     
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string MotPasse { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string SignUpDate { get; set; }
         public Nullable<System.DateTime> LastSignIn { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
+        public string MotPasse { get; set; }
         public int Role_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,7 +43,7 @@ namespace ScrumWare.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tache> Taches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserStory> UserStories { get; set; }
+        public virtual ICollection<UserStory> UserStorys { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Projet> Projets { get; set; }
     }

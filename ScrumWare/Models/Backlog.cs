@@ -18,7 +18,7 @@ namespace ScrumWare.Models
         public Backlog()
         {
             this.Taches = new HashSet<Tache>();
-            this.UserStories = new HashSet<UserStory>();
+            this.UserStorys = new HashSet<UserStory>();
             this.Sprints = new HashSet<Sprint>();
         }
     
@@ -35,7 +35,7 @@ namespace ScrumWare.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tache> Taches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserStory> UserStories { get; set; }
+        public virtual ICollection<UserStory> UserStorys { get; set; }
         public virtual Projet Projet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sprint> Sprints { get; set; }

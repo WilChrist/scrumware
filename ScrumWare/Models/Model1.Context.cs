@@ -29,8 +29,8 @@ namespace ScrumWare.Models
         public virtual DbSet<Projet> Projets { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Sprint> Sprints { get; set; }
-        public virtual DbSet<Tache> Taches { get; set; }
+        public virtual DbSet<Tache> Taches1 { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserStory> UserStories { get; set; }
+        public virtual DbSet<UserStory> UserStorys { get; set; }
     }
 }

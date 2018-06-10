@@ -10,6 +10,7 @@ namespace ScrumWare.Controllers
 {
     public class UserController : Controller
     {
+        ProjetScrumEntities db = new ProjetScrumEntities();
         public ActionResult Index()
         {
             if (Session["user"]==null)
@@ -30,6 +31,10 @@ namespace ScrumWare.Controllers
             return View();
         }
 
+        public ActionResult Sessions1()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(UserLogin user)
@@ -43,7 +48,7 @@ namespace ScrumWare.Controllers
 
             }
                        
-            ProjetScrumEntities db = new ProjetScrumEntities();
+
            // db.Database.SqlQuery("select * from ProjetUser ",);
             var c = db.Users.Where(a => a.Email == user.Email).FirstOrDefault();
             if (c != null)
@@ -51,7 +56,22 @@ namespace ScrumWare.Controllers
                 if (c.MotPasse == user.MotPasse)
                 {
                     Session["user"] = c;
-                    return RedirectToAction("Index");
+                    if (c.Role.Name.Equals("ProductOwner"))
+                    {
+
+                      return  Redirect(Url.Action("Index", "Projets"));
+                    //    return RedirectToAction("Index");
+                    }
+                    if (c.Role.Name.Equals("ScrumMaster"))
+                    {
+                        return Redirect(Url.Action("Index", "Sprint"));
+                    }
+                    if (c.Role.Name.Equals("Equipe"))
+                    {
+
+                        return Redirect(Url.Action("Index", "Taches"));
+                    }
+
                 }
                 else
                 {
@@ -60,15 +80,15 @@ namespace ScrumWare.Controllers
                 }
                 
             }
-            else
-            {
+         
                 ViewBag.message = "Invalid Login";
            
             return View();
-            }
+          
         }
         public ActionResult Inscription()
         {
+            ViewBag.Role_Id = new SelectList(db.Roles, "Id", "Name");
             return View();
         }
         [HttpPost]
@@ -83,11 +103,11 @@ namespace ScrumWare.Controllers
                     ModelState.AddModelError("EmailExist", "Email already Exist");
                     return View(user);
                 }
-                ProjetScrumEntities db = new ProjetScrumEntities();
+              
                 user.SignUpDate = DateTime.Now.ToLongDateString();
                 user.LastSignIn = DateTime.Now;
                 user.DateOfBirth= DateTime.Now;
-                user.Role_Id = 3;
+        
                 db.Users.Add(user);
                 db.SaveChanges();
 
@@ -101,7 +121,11 @@ namespace ScrumWare.Controllers
         [NonAction]
         public bool IsEmailExist(String emailID)
         {
-            ProjetScrumEntities db = new ProjetScrumEntities();
+         
+
+
+
+
             var v = db.Users.Where(a => a.Email == emailID).FirstOrDefault();
             return v != null;
 
