@@ -17,6 +17,7 @@ namespace ScrumWare.Controllers
         // GET: Sprints
         public ActionResult Index()
         {
+
             var sprints = db.Sprints.Include(s => s.Backlog).Include(s => s.User);
             return View(sprints.ToList());
         }
