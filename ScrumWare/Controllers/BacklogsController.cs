@@ -14,27 +14,20 @@ namespace ScrumWare.Controllers
     {
         private ProjetScrumEntities db = new ProjetScrumEntities();
 
-        // GET: Backlogs
-        public ActionResult Index()
+        //GET: Backlogs
+        public ActionResult Index(int id)
         {
-            var backlogs = db.Backlogs.Include(b => b.Projet).Include(b => b.User);
-            return View(backlogs.ToList());
+            Backlog backlog = db.Backlogs.Where(p => p.Projet_Id == id).SingleOrDefault();
+            if (backlog == null)
+            {
+                return RedirectToAction("Create");
+
+            }
+            return View("Details",backlog);
         }
 
         // GET: Backlogs/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Backlog backlog = db.Backlogs.Find(id);
-            if (backlog == null)
-            {
-                return HttpNotFound();
-            }
-            return View(backlog);
-        }
+      
 
         // GET: Backlogs/Create
         public ActionResult Create()

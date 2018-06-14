@@ -158,6 +158,7 @@
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\TachesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserStoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -344,13 +345,11 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Inscription.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\Session.cshtml" />
     <Content Include="Views\Projets\Create.cshtml" />
     <Content Include="Views\Projets\Delete.cshtml" />
     <Content Include="Views\Projets\Details.cshtml" />
     <Content Include="Views\Projets\Edit.cshtml" />
     <Content Include="Views\Projets\Index.cshtml" />
-    <Content Include="Views\User\Sessions1.cshtml" />
     <Content Include="Views\Backlogs\Create.cshtml" />
     <Content Include="Views\Backlogs\Delete.cshtml" />
     <Content Include="Views\Backlogs\Details.cshtml" />
@@ -367,6 +366,11 @@
     <Content Include="Views\Taches\Edit.cshtml" />
     <Content Include="Views\Taches\Index.cshtml" />
     <Content Include="Views\User\ScrumMaster.cshtml" />
+    <Content Include="Views\UserStories\Create.cshtml" />
+    <Content Include="Views\UserStories\Delete.cshtml" />
+    <Content Include="Views\UserStories\Details.cshtml" />
+    <Content Include="Views\UserStories\Edit.cshtml" />
+    <Content Include="Views\UserStories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

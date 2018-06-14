@@ -1,4 +1,4 @@
-﻿@model ScrumWare.Models.Projet
+﻿@model ScrumWare.Models.UserStory
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Projet</h4>
+    <h4>UserStory</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -50,10 +50,49 @@
             @Html.DisplayFor(model => model.State)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Priorite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priorite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estimation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estimation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Backlog.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Backlog.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprint.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sprint.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
-    @Html.ActionLink("Afficher lEs UserStory", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </p>

@@ -26,15 +26,25 @@ namespace ScrumWare.Controllers
             ViewBag.message = "";
             return View();
         }
-        public ActionResult Sessions()
+        public ActionResult ScrumMaster()
         {
-            return View();
+            List<Projet> projets = new List<Projet>();
+            ScrumWare.Models.User user = (ScrumWare.Models.User)Session["user"];
+           
+            projets=db.Users.Find(user.Id).Projets.ToList();
+            return View(projets);
         }
+      public ActionResult ListBacklog(int id)
+        {
+            Backlog backlog = db.Backlogs.Where(p => p.Projet_Id == id).SingleOrDefault();
+            if (backlog == null)
+            {
+                return RedirectToAction("Create");
 
-        public ActionResult Sessions1()
-        {
-            return View();
+            }
+            return View(backlog);
         }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(UserLogin user)
