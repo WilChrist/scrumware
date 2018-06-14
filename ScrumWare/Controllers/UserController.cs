@@ -64,7 +64,7 @@ namespace ScrumWare.Controllers
                     }
                     if (c.Role.Name.Equals("ScrumMaster"))
                     {
-                        return Redirect(Url.Action("Index", "Sprint"));
+                        return Redirect(Url.Action("ScrumMaster", "User"));
                     }
                     if (c.Role.Name.Equals("Equipe"))
                     {

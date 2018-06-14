@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Welcome ScrumMaster";
+    ScrumWare.Models.User user = (ScrumWare.Models.User)Session["user"];
+}
+
+<!-- ***** Wellcome Area Start ***** -->
+<section class="wellcome_area clearfix p-lg-5" id="home">
+    <div class="container" style="margin-top:100px; background-color:white;">
+        <h2> Your Profile</h2>
+        <div class="media border p-4">
+          
+      <img src="~/img/core-img/scrummaster.png" alt="Scrum Master" class="mr-3 mt-3 rounded-circle" style="width:160px;background-color:whitesmoke;">
+           </div>
+            </div>
+    </section>

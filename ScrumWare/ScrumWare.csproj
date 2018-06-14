@@ -366,6 +366,7 @@
     <Content Include="Views\Taches\Details.cshtml" />
     <Content Include="Views\Taches\Edit.cshtml" />
     <Content Include="Views\Taches\Index.cshtml" />
+    <Content Include="Views\User\ScrumMaster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
