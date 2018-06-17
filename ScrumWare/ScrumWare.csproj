@@ -354,7 +354,6 @@
     <Content Include="Views\Backlogs\Delete.cshtml" />
     <Content Include="Views\Backlogs\Details.cshtml" />
     <Content Include="Views\Backlogs\Edit.cshtml" />
-    <Content Include="Views\Backlogs\Index.cshtml" />
     <Content Include="Views\Sprints\Create.cshtml" />
     <Content Include="Views\Sprints\Delete.cshtml" />
     <Content Include="Views\Sprints\Details.cshtml" />

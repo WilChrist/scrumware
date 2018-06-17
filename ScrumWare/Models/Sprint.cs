@@ -11,7 +11,8 @@ namespace ScrumWare.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Sprint
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,11 +25,15 @@ namespace ScrumWare.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.DateTime)]
         public System.DateTime CreationDate { get; set; }
+        [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> LastUpdateDate { get; set; }
         public string State { get; set; }
         public string Decision { get; set; }
+        [DataType(DataType.DateTime)]
         public System.DateTime BeginDate { get; set; }
+        [DataType(DataType.DateTime)]
         public System.DateTime EndDate { get; set; }
         public Nullable<int> Cout { get; set; }
         public Nullable<int> Backlog_Id { get; set; }

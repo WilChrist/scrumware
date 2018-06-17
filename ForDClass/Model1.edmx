@@ -412,6 +412,7 @@
           <Property Name="LastSignIn" Type="DateTime" Nullable="true" />
           <Property Name="Description" Type="String" Nullable="true" MaxLength="Max" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="MotPasse" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -728,7 +729,7 @@
       <EndProperty Name="UserStory">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
-      <Condition ColumnName="Sprint_Id" IsNull="false" />
+            <Condition ColumnName="Sprint_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="UserTache" TypeName="Model1.ajoute" StoreEntitySet="Taches">
       <EndProperty Name="User">

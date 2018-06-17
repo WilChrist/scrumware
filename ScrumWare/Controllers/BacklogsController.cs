@@ -20,7 +20,7 @@ namespace ScrumWare.Controllers
             Backlog backlog = db.Backlogs.Where(p => p.Projet_Id == id).SingleOrDefault();
             if (backlog == null)
             {
-                return RedirectToAction("Create");
+                return RedirectToAction("Create/"+id);
 
             }
             return View("Details",backlog);
@@ -30,11 +30,11 @@ namespace ScrumWare.Controllers
       
 
         // GET: Backlogs/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.Projet_Id = new SelectList(db.Projets, "Id", "Name");
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName");
-            return View();
+            Backlog backlog = new Backlog();
+            backlog.Projet_Id = id;
+            return View(backlog);
         }
 
         // POST: Backlogs/Create
@@ -42,17 +42,20 @@ namespace ScrumWare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,CreationDate,LastUpdateDate,State,TotalEstimation,Projet_Id,User_Id")] Backlog backlog)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,State,TotalEstimation,Projet_Id,User_Id")] Backlog backlog)
         {
             if (ModelState.IsValid)
             {
-                db.Backlogs.Add(backlog);
+                backlog.CreationDate = DateTime.Now;
+                backlog.LastUpdateDate = DateTime.Now;
+ ScrumWare.Models.User user = (ScrumWare.Models.User)Session["user"];
+                backlog.User_Id = user.Id;
+db.Backlogs.Add(backlog);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/"+ backlog.Projet_Id);
             }
 
-            ViewBag.Projet_Id = new SelectList(db.Projets, "Id", "Name", backlog.Projet_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", backlog.User_Id);
+            
             return View(backlog);
         }
 
@@ -63,13 +66,12 @@ namespace ScrumWare.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Backlog backlog = db.Backlogs.Find(id);
+            Backlog backlog = db.Backlogs.Where(p => p.Projet_Id==id).FirstOrDefault();
             if (backlog == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Projet_Id = new SelectList(db.Projets, "Id", "Name", backlog.Projet_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", backlog.User_Id);
+          
             return View(backlog);
         }
 
@@ -78,16 +80,15 @@ namespace ScrumWare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,CreationDate,LastUpdateDate,State,TotalEstimation,Projet_Id,User_Id")] Backlog backlog)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,State,TotalEstimation,Projet_Id,User_Id")] Backlog backlog)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(backlog).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/" + backlog.Projet_Id);
             }
-            ViewBag.Projet_Id = new SelectList(db.Projets, "Id", "Name", backlog.Projet_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", backlog.User_Id);
+    
             return View(backlog);
         }
 
@@ -98,7 +99,7 @@ namespace ScrumWare.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Backlog backlog = db.Backlogs.Find(id);
+            Backlog backlog = db.Backlogs.Where(p => p.Projet_Id == id).FirstOrDefault();
             if (backlog == null)
             {
                 return HttpNotFound();
@@ -111,10 +112,10 @@ namespace ScrumWare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Backlog backlog = db.Backlogs.Find(id);
+            Backlog backlog = db.Backlogs.Where(p => p.Projet_Id == id).FirstOrDefault();
             db.Backlogs.Remove(backlog);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index/"+id);
         }
 
         protected override void Dispose(bool disposing)

@@ -19,6 +19,10 @@ namespace ScrumWare.Controllers
         {
             List<UserStory> userStories = new List<UserStory>();
             userStories = db.UserStorys.Where(p => p.Backlog_Id== id).ToList();
+            if (userStories != null)
+            {
+                return View("Create");
+            }
        
              return View(userStories);
         }
@@ -38,10 +42,11 @@ namespace ScrumWare.Controllers
             return View(userStory);
         }
 
+
         // GET: UserStories/Create
         public ActionResult Create()
         {
-            ViewBag.Backlog_Id = new SelectList(db.Backlogs, "Id", "Name");
+
             ViewBag.Sprint_Id = new SelectList(db.Sprints, "Id", "Name");
             ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName");
             return View();

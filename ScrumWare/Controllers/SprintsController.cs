@@ -15,11 +15,19 @@ namespace ScrumWare.Controllers
         private ProjetScrumEntities db = new ProjetScrumEntities();
 
         // GET: Sprints
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            var sprints = db.Sprints.Where(p => p.Backlog_Id == id);
+            if (sprints.Count()==0) {
+                
+                return RedirectToAction("Create/" + id);
+            }
+            else
+            {
+                return View(sprints.ToList());
 
-            var sprints = db.Sprints.Include(s => s.Backlog).Include(s => s.User);
-            return View(sprints.ToList());
+            }
+          
         }
 
         // GET: Sprints/Details/5
@@ -38,11 +46,11 @@ namespace ScrumWare.Controllers
         }
 
         // GET: Sprints/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.Backlog_Id = new SelectList(db.Backlogs, "Id", "Name");
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName");
-            return View();
+            Sprint sprint = new Sprint();
+            sprint.Backlog_Id = id;
+            return View(sprint);
         }
 
         // POST: Sprints/Create
@@ -50,17 +58,23 @@ namespace ScrumWare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,CreationDate,LastUpdateDate,State,Decision,BeginDate,EndDate,Cout,Backlog_Id,User_Id")] Sprint sprint)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,State,Decision,Cout,Backlog_Id")] Sprint sprint)
         {
+          
             if (ModelState.IsValid)
             {
+                sprint.CreationDate = DateTime.Now;
+                sprint.LastUpdateDate = DateTime.Now;
+                sprint.EndDate = DateTime.Now;
+                sprint.BeginDate = DateTime.Now;
+                ScrumWare.Models.User user = (ScrumWare.Models.User)Session["user"];
+                sprint.User_Id = user.Id;
                 db.Sprints.Add(sprint);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/"+sprint.Backlog_Id);
             }
 
-            ViewBag.Backlog_Id = new SelectList(db.Backlogs, "Id", "Name", sprint.Backlog_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", sprint.User_Id);
+  
             return View(sprint);
         }
 
@@ -76,8 +90,7 @@ namespace ScrumWare.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Backlog_Id = new SelectList(db.Backlogs, "Id", "Name", sprint.Backlog_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", sprint.User_Id);
+
             return View(sprint);
         }
 
@@ -92,10 +105,9 @@ namespace ScrumWare.Controllers
             {
                 db.Entry(sprint).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/ "+ sprint.Backlog_Id);
             }
-            ViewBag.Backlog_Id = new SelectList(db.Backlogs, "Id", "Name", sprint.Backlog_Id);
-            ViewBag.User_Id = new SelectList(db.Users, "Id", "FirstName", sprint.User_Id);
+
             return View(sprint);
         }
 
@@ -122,7 +134,7 @@ namespace ScrumWare.Controllers
             Sprint sprint = db.Sprints.Find(id);
             db.Sprints.Remove(sprint);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index/"+ sprint.Backlog_Id);
         }
 
         protected override void Dispose(bool disposing)
