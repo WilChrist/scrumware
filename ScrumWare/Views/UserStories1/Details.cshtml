@@ -1,4 +1,4 @@
-﻿@model ScrumWare.Models.Backlog
+﻿@model ScrumWare.Models.UserStory
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Backlog</h4>
+    <h4>UserStory</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -51,19 +51,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TotalEstimation)
+            @Html.DisplayNameFor(model => model.Priorite)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TotalEstimation)
+            @Html.DisplayFor(model => model.Priorite)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Projet.Name)
+            @Html.DisplayNameFor(model => model.Estimation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Projet.Name)
+            @Html.DisplayFor(model => model.Estimation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Backlog.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Backlog.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprint.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sprint.Name)
         </dd>
 
         <dt>
@@ -77,8 +93,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Projet_Id }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.Projet_Id })|
-    @Html.ActionLink("Afficher les sprints", "Index", "Sprints", new { id = Model.Id }, null)|
-    @Html.ActionLink("Afficher les user stories", "Index","UserStories", new { id = Model.Id }, null)|
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

@@ -158,6 +158,7 @@
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\TachesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserStories1Controller.cs" />
     <Compile Include="Controllers\UserStoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -370,6 +371,11 @@
     <Content Include="Views\UserStories\Details.cshtml" />
     <Content Include="Views\UserStories\Edit.cshtml" />
     <Content Include="Views\UserStories\Index.cshtml" />
+    <Content Include="Views\UserStories1\Create.cshtml" />
+    <Content Include="Views\UserStories1\Delete.cshtml" />
+    <Content Include="Views\UserStories1\Details.cshtml" />
+    <Content Include="Views\UserStories1\Edit.cshtml" />
+    <Content Include="Views\UserStories1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
